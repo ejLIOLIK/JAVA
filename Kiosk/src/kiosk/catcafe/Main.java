@@ -128,9 +128,9 @@ public class Main {
 		
 		for(int i=0;i<p.length;i++) {
 
-			if(p[i].name.equals(str)) {			
-				System.out.println(p[i].name + " 선택");
+			if(p[i].name.equals(str)) {
 				p[i].order++;
+				System.out.println(p[i].name + " 선택 (총"+p[i].order+"개)");
 			}
 			
 			if(i==p.length) {
