@@ -152,7 +152,7 @@ public class Kiosk {
 		for (int i = 0; i < basket.size(); i++) {
 			System.out.println(
 					basket.get(i).name + "(" + basket.get(i).price + "원) " + CountArray(basket, basket.get(i).name)
-							+ "개 /" + basket.get(i).price * CountArray(basket, basket.get(i).name));
+							+ "개 / 총액 : " + basket.get(i).price * CountArray(basket, basket.get(i).name)+"원");
 
 			sum = sum + basket.get(i).price * CountArray(basket, basket.get(i).name);
 
@@ -192,15 +192,16 @@ public class Kiosk {
 			if (strTF) {
 				count = CountArray(basket, basket.get(i).name);
 
-				System.out.println(basket.get(i).name + " " + count + "개 / 총액 : " + count * basket.get(i).price + "원");
+				System.out.println(basket.get(i).name + "(" + basket.get(i).price + "원) " + count + "개 / 총액 : " + count * basket.get(i).price + "원");
 				sum = sum + basket.get(i).price * count;
 				str.add(basket.get(i).name);
-			} else {
+			} 
+			else {
 				strTF = true;
 			}
 		}
 
-		System.out.println(" ** 총액 : " + sum + "원");
+		System.out.println(" ** 합계 : " + sum + "원");
 		System.out.println("=======================================");
 	}
 
