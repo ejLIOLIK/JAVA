@@ -18,13 +18,12 @@ public class Kiosk {
 	public static String cmd;
 	
 	Product food[] = new Product[] { new Product("라면", 3500), new Product("김밥", 3000)};
-	Product drink[] = new Product[] { new Product("아이스아메리카노", 2500), new Product("콜라", 2000)};
-	Product desert[] = new Product[] { new Product("마카롱", 2500), new Product("샌드위치", 4500)};
+	Product drink[] = new Product[] { new Product("아이스아메리카노", 2500), new Product("콜라", 2000), new Product("아이스티",2000)};
+	Product desert[] = new Product[] { new Product("마카롱", 2500), new Product("샌드위치", 4500), new Product("와플",3000)};
 	Product catfood[] = new Product[] { new Product("츄르", 2000), new Product("참치캔", 4000)};
 
 	void run() {
 				
-		//menuPrint(p);	
 		DP.title();
 		menuPrint("식사", food);
 		menuPrint("음료", drink);
@@ -66,6 +65,7 @@ public class Kiosk {
 			case "v":
 				cartList(basket);
 				break;
+			default:
 			}
 		}
 
@@ -77,19 +77,14 @@ public class Kiosk {
 
 	// 메뉴판 출력
 	static void menuPrint(String str, Product p[]) {
-//		DP.title();
 
-		Command.pr("*"+str+"*\n");
+		Command.pr("* "+str+" *\n");
 		
 		for (int i = 0; i < p.length; i++) {
 			p[i].info();
 		}
-		
-//		DP.line();
 	}
 
-	//str과 이름이 같은 메뉴를 찾아내서 주문수량을 추가함
-//	static void findPro(Product p[], String str, ArrayList<Product> basket) {
 	static void findPro(Product p[], String str) {
 
 		for (int i = 0; i < p.length; i++) {
@@ -153,6 +148,7 @@ public class Kiosk {
 
 				Command.pr(basket.get(i).name + "(" + basket.get(i).price + "원) " + count + "개 / 총액 : " + count * basket.get(i).price + "원 \n");
 				sum = sum + basket.get(i).price * count;
+				
 				str.add(basket.get(i).name);
 			} 
 			else {

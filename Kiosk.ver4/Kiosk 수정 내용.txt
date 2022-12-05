@@ -7,5 +7,5 @@ c.주문취소 / v.장바구니 선택지 추가
 Main에서 Kiosk 클래스로 이동
 
 ver4.
-procMenu 분리
+procMenu 분리 (제품 수량이 늘어나도 배열에서만 내용 수정하면 바로 적용되도록 수정)
 switch문 간결하게 정리

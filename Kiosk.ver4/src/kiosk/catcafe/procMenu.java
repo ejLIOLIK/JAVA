@@ -22,8 +22,6 @@ public class procMenu {
 		
 		Kiosk.findPro(p, p[Integer.parseInt(Kiosk.cmd)-1].name);
 		
-		}
-		
+		}	
 	}
-
 }
