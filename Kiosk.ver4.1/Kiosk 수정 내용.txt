@@ -1,0 +1,14 @@
+ver2. 
+Product 내에 order 변수를 생성해서 주문 수량 수집하는 형식을 ArrayList 를 이용해서 주문 수량을 수집하는 형식으로 수정함
+
+ver3.
+c.주문취소 / v.장바구니 선택지 추가
+장바구니 확인 후 추가 주문이 가능하도록 수정함
+Main에서 Kiosk 클래스로 이동
+
+ver4.
+procMenu 분리
+switch문 간결하게 정리
+
+ver4.1.
+Integer.parseInt에서 발생하는 Exception 오류(NumberFormatException) 예외처리
