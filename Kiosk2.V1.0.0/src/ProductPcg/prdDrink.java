@@ -22,7 +22,6 @@ public class prdDrink extends Product {
 	public int sylup; // 0 바닐라 1 헤이즐넛
 	public int optPrice; // 0 바닐라 1 헤이즐넛
 	
-	
 	public void coffeeOption() { //커피류 옵션 추가금 계산
 		
 		this.optPrice = this.price;

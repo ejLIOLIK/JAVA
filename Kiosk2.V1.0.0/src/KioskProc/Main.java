@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		boolean blAdmin = true; //관리자모드로 시작
+		int blAdmin = 1; //관리자모드로 시작
 		
 		System.out.println(KIOSK_VER);
 		System.out.println("");
@@ -22,15 +22,16 @@ public class Main {
 		Setting.productInit();
 
 		while(true) {
-			if (blAdmin) {
+			if (blAdmin==1) {
 				System.out.println("관리자 모드입니다.");
 				blAdmin = admin.run();
-			} else {
+			} else if (blAdmin==2) {
 				// 키오스트에 자동진입
 				System.out.println("키오스크 모드입니다.");
 				blAdmin = kio.run();
+			} else {
+				break;
 			}
 		}
 	}
-
 }

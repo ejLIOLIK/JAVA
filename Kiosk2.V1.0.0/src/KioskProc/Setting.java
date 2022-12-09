@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import ProductPcg.Product;
 import ProductPcg.prdBook;
-import ProductPcg.prdCatfood;
+//import ProductPcg.prdCatfood;
 import ProductPcg.prdDesert;
 import ProductPcg.prdDrink;
 import ProductPcg.prdFood;
@@ -14,6 +14,8 @@ import ProductPcg.prdOrder;
 public class Setting {
 	
 	public static ArrayList<Product> prdlist = new ArrayList<>(); // 제품목록
+	public static ArrayList<prdBook> novel = new ArrayList<>();
+	
 	public static ArrayList<prdOrder> basket = new ArrayList<>(); // 장바구니
 	
 	public static ArrayList<String> orderlist = new ArrayList<>(); // 주문서목록
@@ -27,23 +29,29 @@ public class Setting {
 	public static void productInit() {
 
 		prdlist.add(new prdFood("라면", 3500)); 
-		prdlist.add(new prdFood("야채김밥", 3000));
+		prdlist.add(new prdFood("짜파게티", 3500)); 
+		prdlist.add(new prdFood("김치볶음밥", 4500));
+		prdlist.add(new prdFood("낙지볶음밥", 4500));
 
 		prdlist.add(new prdDrink("아메리카노", 2500, true)); //true = 시럽 옵션 가능
 		prdlist.add(new prdDrink("라떼", 2000, true));
 		prdlist.add(new prdDrink("밀크티", 2000, false)); //false = 시럽 옵션 불가능
+		prdlist.add(new prdDrink("그린티", 1000, false)); 
 
 		prdlist.add(new prdDesert("마카롱", 2500));
 		prdlist.add(new prdDesert("샌드위치", 4500));
 		prdlist.add(new prdDesert("와플", 3000));
 
-		prdlist.add(new prdCatfood("츄르", 1000));
-		prdlist.add(new prdCatfood("참치캔", 4000));
-		prdlist.add(new prdCatfood("북어펠릿", 2000));
+//		prdlist.add(new prdCatfood("츄르", 1000));
+//		prdlist.add(new prdCatfood("참치캔", 4000));
+//		prdlist.add(new prdCatfood("북어펠릿", 2000));
 
-		prdlist.add(new prdBook("신간", 700));
-		prdlist.add(new prdBook("일반", 500));
+		prdlist.add(new prdBook("도서대여", 500, 0));
 
+		for(int i=0;i<20;i++) {
+			novel.add(new prdBook("NV0"+i, 6500, i+1));
+			novel.get(i).bookInit(5);
+		}
 	}
 	
 	public static void basketSort() { //추가입력된 같은 제품을 정리

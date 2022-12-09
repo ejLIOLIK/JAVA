@@ -2,7 +2,7 @@ package KioskProc;
 
 import ProductPcg.Product;
 import ProductPcg.prdBook;
-import ProductPcg.prdCatfood;
+//import ProductPcg.prdCatfood;
 import ProductPcg.prdDesert;
 import ProductPcg.prdDrink;
 import ProductPcg.prdFood;
@@ -42,14 +42,14 @@ public class Display {
 				nOrder++;
 			}
 		}
-		System.out.println("");
-		System.out.println("* 고양이 메뉴 *"); ///////////////////////////
-		for (Product p : Setting.prdlist) {
-			if (p instanceof prdCatfood) {
-				System.out.print(nOrder+ ". " + p.name + "(" + p.price + "원)  ");
-				nOrder++;
-			}
-		}
+//		System.out.println("");
+//		System.out.println("* 고양이 메뉴 *"); ///////////////////////////
+//		for (Product p : Setting.prdlist) {
+//			if (p instanceof prdCatfood) {
+//				System.out.print(nOrder+ ". " + p.name + "(" + p.price + "원)  ");
+//				nOrder++;
+//			}
+//		}
 		System.out.println(""); 
 		System.out.println("* 책 대여 * "); ///////////////////////////
 		for (Product p : Setting.prdlist) {

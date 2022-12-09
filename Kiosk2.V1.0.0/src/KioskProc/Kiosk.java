@@ -1,12 +1,13 @@
 package KioskProc;
 
-import ProductPcg.Product;
+//import ProductPcg.Product;
+import ProductPcg.prdBook;
 import ProductPcg.prdDrink;
 import ProductPcg.prdOrder;
 
 public class Kiosk {
 
-	boolean run() {
+	int run() {
 
 		while (true) {
 
@@ -22,7 +23,7 @@ public class Kiosk {
 
 				switch (Setting.cmd) {
 				case "admin":
-					return true;
+					return 1;
 				case "c":
 					Setting.basket.clear();
 					System.out.println("주문이 취소됩니다.");
@@ -79,13 +80,13 @@ public class Kiosk {
 
 		int Amount;
 		prdOrder tmp = new prdOrder();
-		
-		System.out.println("주문 수량을 입력하세요.");
-		Amount = Setting.sc.nextInt(); // 키 입력
-		tmp.amount = Amount;
 
 		// 음료 (커피 옵션 고려) //////////////////////////////
 		if (Setting.prdlist.get(n) instanceof prdDrink) {
+			
+			System.out.println("주문 수량을 입력하세요.");
+			Amount = Setting.sc.nextInt(); // 키 입력
+			tmp.amount = Amount;
 
 			prdDrink tmpD = new prdDrink(Setting.prdlist.get(n).name, Setting.prdlist.get(n).price);
 
@@ -96,10 +97,38 @@ public class Kiosk {
 			}
 
 			tmpD.coffeeOption(); // 옵션에 따른 가격변동
-			tmp.p = ((Product) tmpD);
+//			tmp.p = ((Product) tmpD);
+			tmp.p = tmpD;
 
-		} else {
+		}
+		else if (Setting.prdlist.get(n) instanceof prdBook) {
+
+			System.out.println("대여 도서 코드를 입력하세요.");
+
+			Loop_bookQ : while (true) {
+				Amount = Setting.sc.nextInt(); // 키 입력
+
+				for (int i = 0; i < Setting.novel.size(); i++) {
+					if (Setting.novel.get(i).bookCode == Amount) {
+						System.out.println(Setting.novel.get(i).bookCode + " " + Setting.novel.get(i).name + " 대여 확인");
+						
+						tmp.p = new prdBook(Setting.novel.get(i).name, Setting.novel.get(i).bookNewOld(), Setting.novel.get(i).bookCode);
+						tmp.amount = 1;
+						
+						break Loop_bookQ;
+					}
+					if (i == Setting.novel.size() - 1) {
+						Display.erMsg();
+					}
+				}
+			}
+		}
+		else {
 			// 일반제품군 ///////////////////////////////////////
+			System.out.println("주문 수량을 입력하세요.");
+			Amount = Setting.sc.nextInt(); // 키 입력
+			tmp.amount = Amount;
+			
 			tmp.p = Setting.prdlist.get(n);
 
 		}
